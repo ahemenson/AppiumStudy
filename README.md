@@ -1,2 +1,2 @@
 # AppiumStudy
-Repositório para Estudo da ferramenta de automação Appium
+Repositório para Estudo da ferramenta de automação Appium e Cucumber
