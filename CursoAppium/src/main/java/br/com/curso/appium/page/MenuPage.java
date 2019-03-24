@@ -2,14 +2,15 @@ package br.com.curso.appium.page;
 
 import org.openqa.selenium.By;
 
-import br.com.curso.appium.core.DSL;
+import br.com.curso.appium.core.BasePage;
 
-public class MenuPage {
+
+public class MenuPage extends BasePage{
 	
-	private DSL dsl = new DSL();
+	
 	
 	public void acessarFormulario() {
-		dsl.clicar(By.xpath("//*[@text='Formulário']"));
+		clicar(By.xpath("//*[@text='Formulário']"));
 	}
 
 }
