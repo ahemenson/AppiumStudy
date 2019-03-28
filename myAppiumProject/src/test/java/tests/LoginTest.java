@@ -8,11 +8,13 @@ import org.junit.Test;
 
 import core.DriverFactory;
 import pages.LoginPage;
+import pages.SecondPage;
 
 
 public class LoginTest {
 	
 	private LoginPage loginPage = new LoginPage();
+	private SecondPage secondPage = new SecondPage();
 	
 	@Before
 	public void inicializarAppium() {
@@ -36,7 +38,7 @@ public class LoginTest {
 		loginPage.inserirEmail("foo@example.com");
 		loginPage.inserirSenha("hello");
 		loginPage.clicarBotaoLogin();
-		Assert.assertTrue(loginPage.elementIsDisplayed());
+		Assert.assertTrue(secondPage.elementIsDisplayed());
 	}
 	
 	@Test
@@ -52,7 +54,7 @@ public class LoginTest {
 		loginPage.inserirEmail("foo@example.com");
 		loginPage.inserirSenha("hello");
 		loginPage.clicarBotaoLogin();		
-		Assert.assertEquals("exemplo toast", loginPage.getToast());
+		Assert.assertEquals("exemplo toast", secondPage.getToast());
 	}
 
 }

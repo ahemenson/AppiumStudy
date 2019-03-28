@@ -8,10 +8,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.LoginPage;
+import pages.SecondPage;
 
 public class LoginSteps {
 	
 	private LoginPage loginPage = new LoginPage();
+	private SecondPage secondPage = new SecondPage();
 
 	@Given("^I am on the Login screen$")
 	public void i_am_on_the_Login_screen() throws Throwable {
@@ -40,7 +42,7 @@ public class LoginSteps {
 
 	@Then("^I should logged on the app$")
 	public void i_should_logged_on_the_app() throws Throwable {
-		Assert.assertTrue(loginPage.elementIsDisplayed());
+		Assert.assertTrue(secondPage.elementIsDisplayed());
 	}
 	
 	@Then("^I should not logged on the app$")

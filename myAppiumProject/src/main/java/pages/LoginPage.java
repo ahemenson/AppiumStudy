@@ -25,16 +25,12 @@ public class LoginPage {
 		return DriverFactory.getDriver().currentActivity();
 	}
 	
-	public Boolean elementIsDisplayed() {
-		return DriverFactory.getDriver().findElementById("textView").isDisplayed();
-	}
+	
 	
 	public void clicarTermos() {
 		DriverFactory.getDriver().findElementById("com.android.packageinstaller:id/desc_container").click();
 	}
 	
-	public String getToast() {
-		return DriverFactory.getDriver().findElement(By.xpath("//android.widget.Toast[1]")).getAttribute("name");
-	}
+	
 
 }
