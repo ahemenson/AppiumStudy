@@ -11,45 +11,44 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class DriverFactory {	
-	
-	private static AndroidDriver<MobileElement> driver;	
+public class DriverFactory {
+
+	private static AndroidDriver<MobileElement> driver;
 
 	private static void createDriver() {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "emulator-5554");
-		desiredCapabilities.setCapability("platformVersion", "8.0.0");
-		desiredCapabilities.setCapability("automationName", "automator2");
-		
+		// desiredCapabilities.setCapability("platformVersion", "8.0.0");
+		desiredCapabilities.setCapability("automationName", "uiautomator2");
+
 		File classpathRoot = new File(System.getProperty("user.dir"));
-	    File appDir = new File(classpathRoot, "/src/test/resources");
-	    File app = new File(appDir, "CTAppium-1-1.apk");//Definindo
-		
-		// desiredCapabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-		desiredCapabilities.setCapability("appPackage", "com.ctappium");
-		desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");
-		
+		File appDir = new File(classpathRoot, "/src/main/resources");
+		File app = new File(appDir, "CTAppium-1-1.apk");// Definindo
+
+		desiredCapabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+		//desiredCapabilities.setCapability("appPackage", "com.ctappium");
+		//desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");
+
 		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),
-					desiredCapabilities);
+			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-	
+
 	public static AndroidDriver<MobileElement> getDriver() {
-		if(driver == null) {
+		if (driver == null) {
 			createDriver();
 		}
 		return driver;
 	}
-	
+
 	public static void killDriver() {
-		if(driver != null) {
+		if (driver != null) {
 			driver.quit();
 			driver = null;
 		}

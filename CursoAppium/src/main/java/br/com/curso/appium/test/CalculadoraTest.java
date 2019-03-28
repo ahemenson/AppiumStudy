@@ -20,7 +20,7 @@ public class CalculadoraTest {
 		desiredCapabilities.setCapability("platformName","Android");
 		desiredCapabilities.setCapability("deviceName", "NewDevice1_API_26");
 		desiredCapabilities.setCapability("automationName", "appium");
-		desiredCapabilities.setCapability("platformVersion", "8.0");
+		//desiredCapabilities.setCapability("platformVersion", "8.0");
 		desiredCapabilities.setCapability("appPackage", "com.android.calculator2");
 		desiredCapabilities.setCapability("appActivity", "com.android.calculator2.Calculator");
 

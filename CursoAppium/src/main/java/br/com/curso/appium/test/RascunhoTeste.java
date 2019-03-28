@@ -24,7 +24,7 @@ public class RascunhoTeste {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "emulator-5554");
-		desiredCapabilities.setCapability("automationName", "appium");
+		desiredCapabilities.setCapability("automationName", "uiautomator2");
 		// desiredCapabilities.setCapability("platformVersion", "8.0");
 		// desiredCapabilities.setCapability("appPackage", "com.google.android.calculator");
 		// desiredCapabilities.setCapability("appActivity", "com.android.calculator2.Calculator");		

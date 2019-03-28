@@ -46,5 +46,13 @@ public class LoginTest {
 		loginPage.clicarBotaoLogin();
 		Assert.assertEquals(".LoginActivity", loginPage.getCurrentActivity());
 	}
+	
+	@Test
+	public void validarToast() {
+		loginPage.inserirEmail("foo@example.com");
+		loginPage.inserirSenha("hello");
+		loginPage.clicarBotaoLogin();		
+		Assert.assertEquals("exemplo toast", loginPage.getToast());
+	}
 
 }

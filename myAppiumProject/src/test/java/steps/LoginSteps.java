@@ -1,9 +1,6 @@
 package steps;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
 
 import core.DriverFactory;
 import cucumber.api.java.en.And;
@@ -13,18 +10,17 @@ import cucumber.api.java.en.When;
 import pages.LoginPage;
 
 public class LoginSteps {
-
+	
 	private LoginPage loginPage = new LoginPage();
-
-	private void inicializarAppium() {
-		DriverFactory.getDriver();
-		DriverFactory.getDriver().findElementById("com.android.packageinstaller:id/permission_allow_button").click();
-	}
-
 
 	@Given("^I am on the Login screen$")
 	public void i_am_on_the_Login_screen() throws Throwable {
-		this.inicializarAppium();
+		DriverFactory.getDriver().findElementById("com.android.packageinstaller:id/permission_allow_button").click();  
+	}
+	
+	@When("^I insert invalid email$")
+	public void i_insert_invalid_email() throws Throwable {
+		loginPage.inserirEmail("invalido");
 	}
 
 	@When("^I insert valid email$")
@@ -45,6 +41,11 @@ public class LoginSteps {
 	@Then("^I should logged on the app$")
 	public void i_should_logged_on_the_app() throws Throwable {
 		Assert.assertTrue(loginPage.elementIsDisplayed());
+	}
+	
+	@Then("^I should not logged on the app$")
+	public void i_should_not_logged_on_the_app() throws Throwable {
+		Assert.assertEquals(".LoginActivity", loginPage.getCurrentActivity());
 	}
 
 }
