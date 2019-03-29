@@ -55,6 +55,11 @@ public class LoginTest {
 		loginPage.inserirSenha("hello");
 		loginPage.clicarBotaoLogin();		
 		Assert.assertEquals("exemplo toast", secondPage.getToast());
+//		System.out.println(secondPage.toastIsDisplayed());
+//		Assert.assertTrue(secondPage.toastIsDisplayed());
 	}
+	
+	
+	
 
 }

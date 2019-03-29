@@ -8,7 +8,7 @@ Feature: Login on app
     And I insert valid pass
     And Click on Login button
     Then I should logged on the app
-    
+
   Scenario: Validate Unsucessful Login
     Given I am on the Login screen
     When I insert invalid email
@@ -16,3 +16,9 @@ Feature: Login on app
     And Click on Login button
     Then I should not logged on the app
 
+  Scenario: Validate Toast Message
+    Given I am on the Login screen
+    When I insert valid email
+    And I insert valid pass
+    And Click on Login button
+    Then The toast message shoul be displayed

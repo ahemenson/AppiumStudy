@@ -9,6 +9,10 @@ public class SecondPage {
 	public String getToast() {
 		return DriverFactory.getDriver().findElement(By.xpath("//android.widget.Toast[1]")).getAttribute("name");
 	}
+	
+	public Boolean toastIsDisplayed() {
+		return DriverFactory.getDriver().findElement(By.xpath("//android.widget.Toast[1]")).isDisplayed();
+	}
 
 	public Boolean elementIsDisplayed() {
 		return DriverFactory.getDriver().findElementById("textView").isDisplayed();

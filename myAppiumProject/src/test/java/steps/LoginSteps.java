@@ -11,15 +11,15 @@ import pages.LoginPage;
 import pages.SecondPage;
 
 public class LoginSteps {
-	
+
 	private LoginPage loginPage = new LoginPage();
 	private SecondPage secondPage = new SecondPage();
 
 	@Given("^I am on the Login screen$")
 	public void i_am_on_the_Login_screen() throws Throwable {
-		DriverFactory.getDriver().findElementById("com.android.packageinstaller:id/permission_allow_button").click();  
+		DriverFactory.getDriver().findElementById("com.android.packageinstaller:id/permission_allow_button").click();
 	}
-	
+
 	@When("^I insert invalid email$")
 	public void i_insert_invalid_email() throws Throwable {
 		loginPage.inserirEmail("invalido");
@@ -44,10 +44,15 @@ public class LoginSteps {
 	public void i_should_logged_on_the_app() throws Throwable {
 		Assert.assertTrue(secondPage.elementIsDisplayed());
 	}
-	
+
 	@Then("^I should not logged on the app$")
 	public void i_should_not_logged_on_the_app() throws Throwable {
 		Assert.assertEquals(".LoginActivity", loginPage.getCurrentActivity());
+	}
+
+	@Then("^The toast message shoul be displayed$")
+	public void the_toast_message_shoul_be_displayed() throws Throwable {
+		Assert.assertEquals("exemplo toast", secondPage.getToast());
 	}
 
 }
